@@ -1,0 +1,34 @@
+<div class="d-flex p-3 m-4 justify-content-center" data-aos="flip-left">
+  <div class="col-xl-10 col-md-12 col-lg-12">
+        <div class="row shadow-lg rounded">
+              <div class="col-lg-6 d-none d-lg-block bg-secondary">
+                  <img width="100%" height="100%" src="../../../../assets/todoimage.png" alt="">
+              </div>
+              <div class=" col-lg-6 py-5">
+                    <div class="text-center">
+                      <h1 class="h4 text-gray-900 mb-5">Welcome Back !</h1>
+                    </div>
+                    <div class="alert alert-success" *ngIf="message!=''">
+                        {{message}}
+                    </div>
+                  <form [formGroup]="loginForm" (ngSubmit)="LoginUser()"  method="POST">
+
+                    <div class="mb-4">
+                        <input matInput type="text" placeholder="Entrer Email Address..." name="email" [formControl]="emailRegister" class="form-control rounded-pill p-4" id="exampleInputEmail1">
+                        <mat-error *ngIf="emailRegister.invalid">{{getErrorEmail()}}</mat-error>
+                    </div>
+                    <div class="mb-5">
+                       <input matInput type="password" placeholder="Password" name="password" class="form-control rounded-pill p-4" [formControl]="passwordRegister" id="exampleInputPassword1">
+                       <mat-error *ngIf="passwordRegister.invalid">{{getErrorPassword()}}</mat-error>
+                      </div>
+                        <button style="font-size:19px" type="submit" name="submit" class="btn btn-primary btn-block w-100 rounded-pill">Login</button>
+                    </form>
+                    <hr>
+
+                     <div class="fin text-center">
+                            <a routerLink="../signup">Create an Account !</a>
+                    </div>
+              </div>
+        </div>
+  </div>
+</div>

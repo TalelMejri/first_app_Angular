@@ -1,0 +1,9 @@
+<h3 class="text-center">List Courses</h3>
+<div class="container m-4 p-2">
+   <div class="row text-center">
+       <div class="col-lg-4" *ngFor="let course of list_course">
+            <app-course-item [course]="course" (test_emit)="OnNotify($event)"></app-course-item>
+       </div>
+   </div>
+</div>
+

@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-header">
+    {{course.name}}
+  </div>
+  <div class="card-body">
+      <div class="card-text">
+           <img  [src]="course.image"/>
+      </div>
+       <div class="card-text" *ngIf="course.description;else nodesc">
+           {{course.description}}
+      </div>
+      <ng-template #nodesc>
+       <div class="card-text">
+           No description
+         </div>
+      </ng-template>
+      <div class="card-text mt-2 py-4 text-center">
+          <button [routerLink]="['/course/course-details/',course.id]"  class="btn btn-primary mx-2">More Details</button>
+          <button class="btn btn-dark" (click)="test_emit.emit(course.name)">Shared</button>
+        </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<button [disabled]="cartContent.length==0" class="btn btn-danger" (click)="clearAll()">Clear LocalStorages</button>
+<button [disabled]="cartContent.length==0" routerLink="customer" class="btn btn-primary mx-2" >Confirm</button>
+<table class="table table-striped table-hover">
+   <thead>
+      <th>*</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price Each</th>
+      <th>Total Price</th>
+   </thead>
+   <tbody *ngIf="cartContent.length==0;else contenu">
+    <tr >
+        <td colspan="5 "  class="alert alert-danger text-center">Empty Cart </td>
+    </tr>
+ </tbody >
+ <ng-template #contenu>
+  <tbody >
+    <tr *ngFor="let course of cartContent;index as i">
+      <td>{{i+1}}</td>
+      <td>{{course.name}}</td>
+      <td>{{course.quantity}}</td>
+      <td>{{course.prix | currency:'TND'}}</td>
+      <td>{{course.prix * course.quantity | currency:'TND' }}</td>
+    </tr>
+ </tbody>
+ <thead>
+  <tr>
+     <td >Pre tax - Total</td>
+     <td>{{prix_total | currency:' TND'}}</td>
+  </tr>
+  <tr>
+    <td  class="text-right">Tax amount 20%</td>
+    <td>{{prix_total * Tax_rate | currency:'TND'}}</td>
+ </tr>
+ <tr>
+  <td  class="text-right"> price inclusive Vat</td>
+  <td>{{ (prix_total +(prix_total * Tax_rate)) | currency:'TND'}}</td>
+</tr>
+</thead>
+ </ng-template>
+</table>

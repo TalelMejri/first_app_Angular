@@ -1,0 +1,12 @@
+<div class=" mt-5  w-100 justify-content-center align-items-center py-5">
+<form class=" shadow p-5 mx-5 rounded"  method="POST" (ngSubmit)="ConfirmAchat()">
+  <h3 class="text-center">You Info</h3>
+    <input   name="user.name" (keyup)="validate('name')" [class]="name_error=='' ?  'form-control mb-2': 'move_input form-control mb-2'" placeholder="name" type="text" [(ngModel)]="user.name" aria-describedby="nameHelp"/>
+    <div id="nameHelp" class="form-text text-danger" *ngIf="name_error!==''">{{name_error}}</div>
+    <input  name="user.Lastname" (keyup)="validate('last')"  placeholder="Lastname" type="text" [class]="last_error=='' ?  'form-control mb-2': 'move_input form-control mb-2'" [(ngModel)]="user.LastName" aria-describedby="lasthelp"/>
+    <div id="lasthelp" class="form-text text-danger" *ngIf="last_error!==''">{{last_error}}</div>
+    <input   name="user.email" (keyup)="validate('email')"  placeholder="email" type="text" [class]="email_error=='' ?  'form-control mb-2': 'move_input form-control mb-2'" [(ngModel)]="user.email" aria-describedby="emailhelp" />
+    <div id="emailhelp" class="form-text text-danger" *ngIf="email_error!==''">{{email_error}}</div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+</div>

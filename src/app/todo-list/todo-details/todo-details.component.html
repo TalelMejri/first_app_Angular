@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-header text-center">
+        {{todo.title}}
+    </div>
+    <div class="card-body text-center ">
+      <div class="card-text mb-2">
+         Title : {{todo.description}}
+      </div>
+     <div class="card-text mb-3">
+      dueDate : {{todo.dueDate | slice:0:10}}
+     </div>
+     <div [class]="todo.isCompleted ? 'card-text text-success mb-2' : 'card-text text-danger mb-2'">
+        Complted :{{todo.isCompleted ? 'Completed' : 'Not Yet' }}
+      </div>
+    </div>
+    <div class="text-center m-1 p-3">
+       <button routerLink="/Todo" class="btn btn-secondary">Go BACK</button>
+    </div>
+</div>

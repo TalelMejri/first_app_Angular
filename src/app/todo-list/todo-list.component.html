@@ -1,0 +1,59 @@
+<h1>List Todo List</h1>
+<button class="btn btn-primary" [routerLink]="'../add/'+null">Ajouter </button>
+<div class="alert alert-success" *ngIf="message!=''">{{message}}</div>
+<div class="container d-flex justify-content-center mt-5">
+<table class="table table-bordered table-striped ">
+  <thead class="bg-primary p-4">
+      <th class="text-center text-white">*</th>
+      <th class="text-center text-white">id</th>
+      <th class="text-center text-white">Nom</th>
+      <th class="text-center text-white">Operation</th>
+  </thead>
+  <tbody *ngIf="loading;else show">
+      <tr>
+         <td colspan="4" class="text-center">
+          <div class="spinner-border " role="status">
+          </div>
+         </td>
+      </tr>
+  </tbody>
+  <ng-template #show>
+  <tbody *ngIf="AllList=='';else NotEmpty">
+    <tr>
+      <td colspan="4" class="text-danger text-center">EMPTY</td>
+    </tr>
+ </tbody>
+ <ng-template #NotEmpty>
+  <tbody >
+    <tr *ngFor="let todo of AllList">
+       <td class="text-center"><input type="checkbox" (change)="ChangeStatu(todo.id)"  [attr.checked]="todo.isCompleted ? true : null"></td>
+       <td [class]="todo.isCompleted ? 'text-decoration-line-through text-center' : 'text-center'">{{todo.id}}</td>
+       <td [class]="todo.isCompleted ? 'text-decoration-line-through text-center' : 'text-center'">{{todo.title}}</td>
+       <td class="text-center">
+         <button [disabled]="todo.isCompleted " [routerLink]="'../add/'+todo.id"  class="btn btn-warning mx-2 text-center">Edit</button>
+         <button [disabled]="todo.isCompleted" class="btn btn-danger mx-2 text-center" data-bs-toggle="modal"  (click)="OpenModal('exampleModal'+todo.id)" [attr.data-bs-target]="'#exampleModal'+todo.id">Delete</button>
+         <button  class="btn btn-primary" [routerLink]="'../TodoDetails/'+todo.id">Info</button>
+       </td>
+       <div class="modal fade mt-2 py-1" [id]="'exampleModal'+todo.id" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">{{todo.title}}</h5>
+              <button type="button" class="btn-close" (click)="CloseModal('exampleModal'+todo.id)"></button>
+            </div>
+            <div class="modal-body">
+               Do You Want Delete {{todo.title}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="CloseModal('exampleModal'+todo.id)">Close</button>
+              <button type="button" class="btn btn-danger" (click)="DeleteTodo(todo.id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </tr>
+ </tbody>
+ </ng-template>
+</ng-template>
+</table>
+</div>

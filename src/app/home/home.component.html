@@ -1,0 +1,16 @@
+<div data-aos="fade-up">
+  <p >{{msg}}</p>
+  {{date_current | date:'longDate'}} <!--Pipes-->
+  <br>
+  {{date_current | date:'fullDate'}}
+  <mat-spinner></mat-spinner>
+  <button (click)="testSpineer=!testSpineer">test Spinner</button>
+  <mat-icon class="icon" >grid_view</mat-icon>
+  <button class="btn btn-danger" >
+  <div *ngIf="!testSpineer">
+    Login
+  </div>
+  <mat-spinner diameter="25"  *ngIf="testSpineer"></mat-spinner>
+</button>
+  <button type="button" [disabled]="home_worked" (click)="HomeWorked()">Work Home</button>
+</div>

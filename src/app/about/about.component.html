@@ -1,0 +1,13 @@
+<div data-aos="fade-up">
+<p [style]="user.activeStyle">
+    {{user.name}}  (color:{{user.activeStyle.color}})
+</p>
+<br>
+<p [style]="user1.activeStyle">
+  {{user1.name}}  (color:{{user1.activeStyle.color}})
+</p>
+<button type="button" (click)="SwitchColor()">Switch</button>
+<br>
+<label foe="">user1 name</label>
+<input type="text" [(ngModel)]="user.name" [value]="user.name"/>
+</div>

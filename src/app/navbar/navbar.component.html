@@ -1,0 +1,21 @@
+<div class="container-full  p-3">
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <span class="fs-4">AppAngular</span>
+    </a>
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a routerLink="/" class="nav-link " aria-current="page">Home</a></li>
+      <li class="nav-item"><a routerLink="/contact" class="nav-link">Contact</a></li>
+      <li class="nav-item"><a routerLink="/about" class="nav-link">About</a></li>
+      <li class="nav-item"><a routerLink="/course" class="nav-link">Courses</a></li>
+      <li class="nav-item"><a routerLink="/props" class="nav-link">Props</a></li>
+      <button  class="btn btn-outline-success " routerLink="/cart">
+        <i class="bi bi-cart"></i> CheckOut
+      </button>
+      <button *ngIf="AuthServiceService.isLoggedIn$ | async" class="btn btn-outline-danger mx-2" (click)="Logout()">
+           Logout
+      </button>
+    </ul>
+  </header>
+</div>
+

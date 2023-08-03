@@ -1,0 +1,23 @@
+export const courses=[
+  {
+    id:1,
+    name:'Html',
+    description:"html html",
+    image:'assets/courses/html.png',
+    prix:15
+  },
+  {
+    id:2,
+    name:'Angular',
+    description:"Angular Angular Angular",
+    image:'assets/courses/angular.png',
+    prix:35
+  },
+  {
+    id:3,
+    name:'Spring Boot',
+    description:"",
+    image:'assets/courses/springBoot.png',
+    prix:25
+  }
+]

@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-center">
+  <div class="col-x1-10 col-md-12 col-lg-12">
+    <div class="row shadow-lg rounded">
+        <div class="col-lg-6 d-none d-lg-block">
+           <img src="../../../assets/todoimage.png" alt="dd" width="100%" height="100%">
+        </div>
+        <div class=" col-lg-6 py-2">
+          <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-5">{{Title}}</h1>
+            <form method="post" (ngSubmit)="AddTodo()">
+                <div  class="mb-2">
+                  <label>Title</label>
+                  <input class="form-control" name="title" type="text" [(ngModel)]="todo.title" >
+                </div>
+                <div class="mb-2">
+                  <label>Description</label>
+                   <textarea class="form-control" name="description"  cols="30" rows="10" [(ngModel)]="todo.description"></textarea>
+                </div>
+                <div class="mb-2">
+                  <label>Due Date</label>
+                  <input class="form-control" name="duedate" type="date" [(ngModel)]="todo.duedate">
+                </div>
+                <button class="btn btn-success">{{Title | slice:0:8}}</button>
+            </form>
+          </div>
+      </div>
+  </div>
+</div>

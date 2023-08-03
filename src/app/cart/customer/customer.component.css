@@ -1,0 +1,16 @@
+.move_input {
+  animation: animate 0.5s;
+  border-color: red;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
